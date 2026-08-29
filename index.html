@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>フォーカスタイマー</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>フォーカスタイマー</h1>
+      <div class="mode-switch" id="modeSwitch">
+        <button class="mode-btn active" data-mode="focus" data-min="25">集中 25</button>
+        <button class="mode-btn" data-mode="short" data-min="5">小休憩 5</button>
+        <button class="mode-btn" data-mode="long" data-min="15">大休憩 15</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 200 200">
+          <circle class="ring-bg" cx="100" cy="100" r="90"></circle>
+          <circle class="ring-progress" id="ringProgress" cx="100" cy="100" r="90"></circle>
+        </svg>
+        <div class="ring-center">
+          <div class="time" id="timeDisplay">25:00</div>
+          <div class="status" id="statusText">集中する準備はいいですか?</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn secondary" id="resetBtn" title="リセット">↺</button>
+        <button class="btn primary" id="startBtn">開始</button>
+        <button class="btn secondary" id="skipBtn" title="スキップ">⏭</button>
+      </div>
+
+      <section class="tasks">
+        <div class="tasks-head">
+          <h2>タスク</h2>
+          <span class="session-count" id="sessionCount">完了: 0 セッション</span>
+        </div>
+        <form id="taskForm" class="task-form">
+          <input type="text" id="taskInput" placeholder="何に集中しますか?" maxlength="80" autocomplete="off">
+          <button type="submit">追加</button>
+        </form>
+        <ul id="taskList" class="task-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
